@@ -39,14 +39,13 @@ def getArticle(name):
 		return "1"
 	else:
 		return "0"
-@app.route("/pull/<link>")
-def pull(link):
-	array = []
-	fullarticle = article.find({"url": link}, {"_id": 0})
-	for art in fullarticle:
-		array.append(art)
-	end = ''.join(json.dumps(array))
-	return end
+@app.route("/pull/<writer>")
+def pull(writer):
+	text = ""
+	fullarticle = article.find({"author": writer}, {"_id": 0})
+	for story in fullarticle:
+		text += "<p>"+story['description']+"</p>" +"<p>"+"<a href=>"+ story['url']+">Link text</a>" +" </p>" +"<br><br>"
+	return text
 @app.route("/pullfeed")
 def feed():
 	array = []
