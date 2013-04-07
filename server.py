@@ -44,7 +44,7 @@ def pull(writer):
 	text = ""
 	fullarticle = article.find({"author": writer}, {"_id": 0})
 	for story in fullarticle:
-		text += "<p>"+story['description']+"</p>" +"<p>"+"<a href=>"+ story['url']+">Link text</a>" +" </p>" +"<br><br>"
+		text += "<font size =""6"">" + story['title'] +"</font>"+ "<p><font size =""3"">"+story['description']+"</font></p>" +"<p>"+"<a href="+ story['url']+"target= ""_blank"">Link To RSS Feed</a>" +" </p>" +"<br><br>"
 	return text
 @app.route("/pullfeed")
 def feed():
@@ -54,4 +54,11 @@ def feed():
 		array.append(json.dumps(feed))
 	end = ''.join(array)
 	return end
+@app.route("/index")
+def index():
+	text = ""
+	feed = rss.find({"test": "set"})
+	for info in feed:
+		text += "<p>"+info['title']+"</p>" +"<p>"+"<a href="+ info['url']+"target= ""_blank"">Link To RSS Feed</a>" +" </p>" +"<br>"
+	return text
 app.run(host='192.81.208.114')
