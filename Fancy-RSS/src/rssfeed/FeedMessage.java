@@ -1,4 +1,4 @@
-package rssfeed;
+//package rssfeed;
 
 public class FeedMessage {
 

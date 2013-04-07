@@ -1,5 +1,4 @@
-
-package rssfeed;
+//package rssfeed;
 
 
 import java.io.IOException;

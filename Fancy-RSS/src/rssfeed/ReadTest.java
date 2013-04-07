@@ -1,4 +1,4 @@
-package rssfeed;
+//package rssfeed;
 
 public class ReadTest {
 	public static void main(String[] args) {
